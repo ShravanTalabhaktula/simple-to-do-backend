@@ -1,0 +1,37 @@
+{
+  "name": "simple-to-do-backend",
+  "version": "1.0.0",
+  "description": "Node.js backend development playground for building production-ready REST APIs using TypeScript, Express, PostgreSQL, testing, Docker, and modern backend engineering practices.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "prestart": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShravanTalabhaktula/simple-to-do-backend.git"
+  },
+  "keywords": [],
+  "author": "Shravan Kumar Talabhaktula",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ShravanTalabhaktula/simple-to-do-backend/issues"
+  },
+  "homepage": "https://github.com/ShravanTalabhaktula/simple-to-do-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.9.3",
+    "typescript": "^6.0.3",
+    "tsx": "^4.22.4"
+  }
+}
