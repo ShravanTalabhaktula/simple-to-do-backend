@@ -1,0 +1,38 @@
+###
+# ==========================================
+# Backend API Requests
+# ==========================================
+#
+# Environment:
+# Local Development
+#
+# Base URL:
+# http://localhost:3000
+#
+# Usage:
+# 1. Start the backend
+# 2. Click "Send Request"
+# 3. Verify the response
+#
+# ==========================================
+@host = localhost
+@port = 3000
+@baseUrl = http://{{host}}:{{port}}
+
+###
+# Health Check
+#
+# Purpose:
+# Verify that the service is up and responding.
+#
+# Expected Status:
+# 200 OK
+#
+# Expected Response:
+# {
+#   "status": "OK",
+#   "message": "Server is healthy",
+#   "timestamp": "..."
+# }
+#
+GET {{baseUrl}}/api/health
