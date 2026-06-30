@@ -13,7 +13,7 @@
     "db:up": "docker compose up -d",
     "db:down": "docker compose down",
     "db:logs": "docker compose logs -f postgres",
-    "migrate:create" : "node-pg-migrate create",
+    "migrate:create": "node-pg-migrate create",
     "migrate:up": "node-pg-migrate up -d $DATABASE_URL",
     "migrate:down": "node-pg-migrate down -d $DATABASE_URL"
   },
@@ -30,14 +30,19 @@
   },
   "homepage": "https://github.com/ShravanTalabhaktula/simple-to-do-backend#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "pg": "^8.22.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^25.9.3",
+    "@types/pg": "^8.20.0",
     "@types/supertest": "^7.2.0",
     "node-pg-migrate": "^8.0.4",
     "supertest": "^7.2.2",

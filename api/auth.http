@@ -1,0 +1,117 @@
+###
+# ==========================================
+# Backend API Requests
+# ==========================================
+#
+# Environment:
+# Local Development
+#
+# Base URL:
+# http://localhost:3000
+#
+# Usage:
+# 1. Start the backend
+# 2. Click "Send Request"
+# 3. Verify the response
+#
+# ==========================================
+@host = localhost
+@port = 3000
+@baseUrl = http://{{host}}:{{port}}
+
+### Register User
+# Purpose:
+# Register a new user in the system.
+# Expected Status:
+# 201 Created
+# Expected Response:
+# {
+#   "status": "SUCCESS",
+#   "data": {
+#     "id": "...",
+#     "username": "...",
+#     "firstName": "...",
+#     "lastName": "...",
+#     "email": "...",
+#     "role": "...",
+#     "status": "...",
+#     "emailVerified": false,
+#     "createdAt": "...",
+#   }
+# }
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "firstName": "Test",
+  "lastName": "User",
+  "email": "testuser@example.com",
+  "password": "password@123"
+}
+
+### Register User - Invalid Email
+# Purpose:
+# Test the validation of the register user endpoint with an invalid email.
+# Expected Status:
+# 400 Bad Request
+# Expected Response:
+# {
+#   "status": "FAIL",
+#   "message": "Invalid email address",
+#   "timestamp": "..."
+# }
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "firstName": "Test",
+  "lastName": "User",
+  "email": "invalid-email",
+  "password": "password@123"
+}
+
+### Register User - Duplicate Email
+# Purpose:
+# Test the registration of a user with an email that already exists in the system.
+# Expected Status:
+# 409 Conflict
+# Expected Response:
+# {
+#   "status": "FAIL",
+#   "message": "Email already exists",
+#   "timestamp": "..."
+# }
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser2",
+  "firstName": "Test",
+  "lastName": "User",
+  "email": "testuser@example.com",
+  "password": "password@123"
+}
+
+### Register User - Duplicate Username
+# Purpose:
+# Test the registration of a user with a username that already exists in the system.
+# Expected Status:
+# 409 Conflict
+# Expected Response:
+# {
+#   "status": "FAIL",
+#   "message": "Username already exists",
+#   "timestamp": "..."
+# }
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "firstName": "Test",
+  "lastName": "User",
+  "email": "testuser2@example.com",
+  "password": "password@123"
+}

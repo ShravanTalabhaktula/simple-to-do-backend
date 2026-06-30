@@ -1,8 +1,17 @@
 import dotenv from 'dotenv';
+import { envSchema } from './env.schema.js'
 
 dotenv.config();
 
+const parsedEnv = envSchema.safeParse(process.env);
+
+if (!parsedEnv.success) {
+    console.error('Invalid environment variables:', parsedEnv.error.format());
+    process.exit(1);
+}
+
 export const env = {
-    port: Number(process.env.PORT) || 3000,
-    nodeEnv: process.env.NODE_ENV || 'development',
+    port: parsedEnv.data.PORT,
+    nodeEnv: parsedEnv.data.NODE_ENV,
+    databaseUrl: parsedEnv.data.DATABASE_URL,
 };
